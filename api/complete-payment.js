@@ -19,8 +19,8 @@ export default async function handler(req, res) {
     const response = await fetch(`https://api.minepi.com/v2/payments/${paymentId}/complete`, {
       method: 'POST',
       headers: {
-        authorization: `key ${apiKey}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Key ${apiKey}`
       },
       body: JSON.stringify({ txid })
     });
