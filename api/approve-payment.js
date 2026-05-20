@@ -10,7 +10,7 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Missing paymentId' });
     }
 
-    const apiKey = process.env.PI_API_KEY;
+    const apiKey = (process.env.PI_API_KEY || '').trim();
 
     if (!apiKey) {
       return res.status(500).json({ error: 'Missing PI_API_KEY environment variable' });
@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const response = await fetch(`https://api.minepi.com/v2/payments/${paymentId}/approve`, {
       method: 'POST',
       headers: {
-        'Authorization': `Key ${apiKey}`,
+        authorization: `key ${apiKey}`,
         'Content-Type': 'application/json'
       }
     });
