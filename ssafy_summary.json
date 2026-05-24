@@ -1,0 +1,31 @@
+{
+  "updated_at": "대기 중",
+  "source": "desktop_master_dashboard",
+  "mode": "info_only",
+  "trading_enabled": false,
+  "portfolio": {
+    "total_balance": null,
+    "realized_pnl": null,
+    "unrealized_pnl": null,
+    "available_seed": null
+  },
+  "market": {
+    "state": "데스크 요약 대기",
+    "long_ratio": null,
+    "short_ratio": null,
+    "btc_gap": "-",
+    "eth_gap": "-"
+  },
+  "signals": {
+    "a1_live": null,
+    "open_positions": null,
+    "closed_positions": null
+  },
+  "top_symbols": [],
+  "risk_notes": [
+    "정보확인용",
+    "실거래 금지",
+    "데스크 원본 업데이트 대기"
+  ],
+  "research_memo": "데스크 export 결과가 이 파일에 반영되면 SSAFY 앱에서 자동으로 표시됩니다."
+}
