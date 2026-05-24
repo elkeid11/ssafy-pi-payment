@@ -1,1 +1,125 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SSAFY 정보확인 보드</title><script src="https://sdk.minepi.com/pi-sdk.js"></script><style>body{font-family:Arial,sans-serif;margin:0;background:#fafafa;color:#111}.hero{background:#6d28d9;color:white;text-align:center;padding:34px 18px}.hero h1{font-size:42px;margin:0 0 10px}.hero p{max-width:760px;margin:0 auto;line-height:1.5}.wrap{max-width:960px;margin:0 auto;padding:18px}.card{background:white;border-radius:16px;padding:20px;margin:14px 0;box-shadow:0 8px 24px rgba(0,0,0,.08)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.box{border:1px solid #eee;border-radius:14px;padding:15px;background:#fff}.notice{border-left:5px solid #6d28d9;background:#fbf8ff}.danger{border-left:5px solid #dc2626;background:#fff7f7}.badge{display:inline-block;background:#efe7ff;color:#4c1d95;padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;margin:4px 4px 8px 0}button,.btn{font-size:16px;padding:13px 18px;border:0;border-radius:12px;background:#6d28d9;color:#fff;cursor:pointer;text-decoration:none;display:inline-block;margin:3px 0}button:disabled{background:#aaa}.status,.out{margin-top:16px;padding:14px;background:#f1f1f1;border-radius:12px;white-space:pre-wrap;text-align:left;word-break:break-word}.out{background:#15121f;color:#fff}.muted{color:#555;line-height:1.5}.kpi{font-size:28px;font-weight:800}.green{color:#16a34a}.red{color:#dc2626}.small{font-size:13px;color:#666;text-align:center;padding:18px}input,textarea,select{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin:6px 0;font-size:15px}textarea{min-height:92px}@media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:32px}}</style></head><body><section class="hero"><h1>SSAFY</h1><p>데스크 코인 대시보드를 원본으로 읽는 모바일 정보확인 보드입니다. 실거래·주문 실행 기능은 없습니다.</p></section><main class="wrap"><section class="card notice"><span class="badge">데스크 원본</span><span class="badge">모바일 뷰어</span><span class="badge">실거래 아님</span><h2>SSAFY Research Board</h2><p class="muted">데스크에서 생성한 <b>ssafy_summary.json</b>을 읽어 Pi Browser에서 시장 요약, 후보 종목, 리스크 메모를 확인합니다.</p><button onclick="loadDesktopSummary()">데스크 요약 새로고침</button><button onclick="copyDesktopReport()">요약 복사</button><div id="syncStatus" class="status">데스크 요약 로딩 대기 중...</div></section><section class="card"><h2>데스크 원본 요약</h2><div class="grid"><div class="box"><h3>포트폴리오</h3><div id="portfolioBox" class="muted">대기 중</div></div><div class="box"><h3>시장 상태</h3><div id="marketBox" class="muted">대기 중</div></div><div class="box"><h3>신호/포지션</h3><div id="signalBox" class="muted">대기 중</div></div></div><div id="symbolsBox" class="out">세력종목 TOP 대기 중</div></section><section class="card danger"><h2>안전 원칙</h2><div class="grid"><div class="box"><h3>주문 실행 없음</h3><p class="muted">SSAFY는 거래소 주문, 자동매매, 웹훅 실행을 하지 않습니다.</p></div><div class="box"><h3>정보 확인용</h3><p class="muted">데스크 원본을 폰에서 보는 보조 화면입니다.</p></div><div class="box"><h3>민감정보 금지</h3><p class="muted">API Key, Secret, 지갑 비밀구절은 저장하지 않습니다.</p></div></div></section><section class="card"><h2>수동 메모 보조</h2><p class="muted">데스크 요약이 늦을 때만 임시 메모로 사용합니다. 원본은 데스크입니다.</p><textarea id="localMemo" placeholder="임시 확인 메모"></textarea><button onclick="saveLocalMemo()">임시 메모 저장</button><div id="memoOut" class="status">임시 메모 없음</div></section><section class="card"><h2>Pi 연결 확인</h2><p class="muted">Pi Browser 인증과 Test-Pi 결제 연결 확인용입니다. 실거래와 무관합니다.</p><button id="payBtn" disabled>Test Pi Payment</button><div id="status" class="status">Pi SDK 로딩 중...</div></section><section class="card"><h2>SSAFY 소개</h2><p class="muted">SSAFY는 Smart Signal & Asset Flow Yard의 정보확인 보드입니다. 데스크 연구 결과를 모바일에서 확인하기 위한 ELKEID 자체 서비스입니다.</p><a class="btn" href="/privacy.html">Privacy Policy</a> <a class="btn" href="/terms.html">Terms of Service</a></section></main><div class="small">SSAFY · 데스크 원본 기반 코인 연구 모바일 뷰어</div><script>const SUMMARY_URL='/ssafy_summary.json?v='+Date.now();let lastSummary=null;const statusBox=document.getElementById('status'),payBtn=document.getElementById('payBtn');function money(v){return v===null||v===undefined?'-':'$'+Number(v).toLocaleString()}function pct(v){return v===null||v===undefined?'-':String(v)+'%'}async function loadDesktopSummary(){try{syncStatus.textContent='데스크 요약 불러오는 중...';const r=await fetch(SUMMARY_URL,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const d=await r.json();lastSummary=d;renderDesktopSummary(d);syncStatus.textContent='데스크 요약 로드 완료\n업데이트: '+(d.updated_at||'-')+'\nsource: '+(d.source||'-')+'\nmode: '+(d.mode||'-')}catch(e){syncStatus.textContent='데스크 요약 불러오기 실패\n'+(e.message||String(e))+'\n\n데스크 export 또는 JSON 공개 URL을 확인해야 합니다.'}}function renderDesktopSummary(d){const p=d.portfolio||{},m=d.market||{},s=d.signals||{};portfolioBox.textContent='총 잔고: '+money(p.total_balance)+'\n실현 PnL: '+money(p.realized_pnl)+'\n미실현 PnL: '+money(p.unrealized_pnl)+'\n가용 시드: '+money(p.available_seed);marketBox.textContent='국면: '+(m.state||'-')+'\nLONG: '+pct(m.long_ratio)+'\nSHORT: '+pct(m.short_ratio)+'\nBTC 김프: '+(m.btc_gap||'-')+'\nETH 김프: '+(m.eth_gap||'-');signalBox.textContent='A1 실시간: '+(s.a1_live??'-')+'\nOPEN: '+(s.open_positions??'-')+'\nCLOSED: '+(s.closed_positions??'-')+'\n실거래 활성: '+(d.trading_enabled?'주의: true':'false');const arr=d.top_symbols||[];symbolsBox.textContent=arr.length?arr.map((x,i)=>`${i+1}. ${x.symbol} / ${x.direction||'-'} / force ${x.force??'-'}\n분산: ${x.spread||'-'} / 4H: ${x.hunt_4h??'-'} / trend: ${x.trend||'-'} / price: ${x.price??'-'}\n${x.note||''}`).join('\n\n'):'세력종목 TOP 없음';if(d.risk_notes&&d.risk_notes.length)symbolsBox.textContent+='\n\n[리스크 메모]\n- '+d.risk_notes.join('\n- ');if(d.research_memo)symbolsBox.textContent+='\n\n[연구 메모]\n'+d.research_memo}async function copyDesktopReport(){const text=lastSummary?document.body.innerText:'아직 로드된 요약 없음';try{await navigator.clipboard.writeText(text);alert('요약 복사 완료')}catch(_){alert(text)}}function saveLocalMemo(){localStorage.setItem('ssafyLocalMemo',localMemo.value);memoOut.textContent=localMemo.value||'임시 메모 없음'}function setStatus(m){statusBox.textContent=m;console.log(m)}async function postJson(url,payload){const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const text=await res.text();let data;try{data=JSON.parse(text)}catch(_){data={raw:text}}if(!res.ok)throw new Error(JSON.stringify(data));return data}function onIncompletePaymentFound(payment){setStatus('미완료 결제 발견:\n'+JSON.stringify(payment,null,2))}window.addEventListener('load',function(){localMemo.value=localStorage.getItem('ssafyLocalMemo')||'';memoOut.textContent=localMemo.value||'임시 메모 없음';loadDesktopSummary();try{if(!window.Pi){setStatus('Pi SDK가 로드되지 않았습니다. Pi Browser에서 열어주세요.');return}Pi.init({version:'2.0',sandbox:true});setStatus('Pi SDK 초기화 완료. 결제 테스트 준비됨.');payBtn.disabled=false}catch(err){setStatus('Pi init error:\n'+(err.message||String(err)))}});payBtn.addEventListener('click',async function(){payBtn.disabled=true;try{setStatus('Pi 인증 진행 중...');await Pi.authenticate(['username','payments'],onIncompletePaymentFound);setStatus('인증 완료. 테스트 결제 생성 중...');Pi.createPayment({amount:0.01,memo:'SSAFY test payment',metadata:{app:'SSAFY',type:'test'}},{onReadyForServerApproval:async function(paymentId){try{const result=await postJson('/api/approve-payment',{paymentId});setStatus('서버 승인 완료. Pi Wallet에서 승인하세요.\n\n'+JSON.stringify(result,null,2))}catch(err){setStatus('서버 승인 오류:\n'+(err.message||String(err)));payBtn.disabled=false}},onReadyForServerCompletion:async function(paymentId,txid){try{const result=await postJson('/api/complete-payment',{paymentId,txid});setStatus('결제 완료.\n\n'+JSON.stringify(result,null,2));payBtn.disabled=false}catch(err){setStatus('결제 완료 처리 오류:\n'+(err.message||String(err)));payBtn.disabled=false}},onCancel:function(paymentId){setStatus('결제 취소. Payment ID: '+paymentId);payBtn.disabled=false},onError:function(error,payment){setStatus('결제 오류:\n'+(error&&error.message?error.message:JSON.stringify(error))+'\n\nPayment:\n'+JSON.stringify(payment,null,2));payBtn.disabled=false}})}catch(err){setStatus('오류:\n'+(err.message||String(err)));payBtn.disabled=false}});</script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>SSAFY 데스크 원본 뷰어</title>
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+  <style>
+    :root{
+      --bg:#080d14;--panel:#111820;--panel2:#151e29;--line:#283241;--text:#eef5ff;
+      --muted:#8fa1b6;--blue:#2f81f7;--green:#2fd27a;--red:#ff5f63;--amber:#f4b740;
+      --cyan:#2dd4bf;--shadow:0 14px 34px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic",sans-serif;letter-spacing:0}
+    a{color:inherit;text-decoration:none} button{font:inherit}
+    .app{max-width:1040px;margin:0 auto;padding:16px 14px 32px}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(8,13,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 14px;margin:0 -14px 14px}
+    .topbar-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .brand h1{font-size:22px;margin:0 0 4px}.brand p{margin:0;color:var(--muted);font-size:12px;line-height:1.4}
+    .refresh{border:1px solid #245aa8;background:#1c5cc8;color:#fff;border-radius:8px;padding:10px 12px;font-weight:800;white-space:nowrap}
+    .chips{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.chip{border:1px solid var(--line);background:#101720;border-radius:999px;padding:6px 9px;color:#bcd0e6;font-size:12px;font-weight:700}.chip.green{border-color:#1d7f49;color:#4ade80}.chip.red{border-color:#97343a;color:#ff8b8f}
+    .decision{border:1px solid #77323a;background:linear-gradient(135deg,#181016,#101720);border-radius:10px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
+    .decision h2{margin:0 0 8px;font-size:20px;color:#ff777b}.decision p{margin:4px 0;color:#cbd7e6;font-size:13px;line-height:1.5}
+    .grid{display:grid;gap:10px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px;box-shadow:var(--shadow)}
+    .card h2{font-size:17px;margin:0 0 10px}.card h3{font-size:13px;margin:0;color:#b7c8dc}.card .label{color:var(--muted);font-size:12px;margin-bottom:6px}.value{font-size:24px;font-weight:900;line-height:1.1}.sub{color:var(--muted);font-size:12px;margin-top:6px;line-height:1.35}.green{color:var(--green)}.red{color:var(--red)}.amber{color:var(--amber)}.blue{color:#79b6ff}
+    .market-state{font-size:28px;font-weight:950;color:#ff696d}.ratio-row{display:flex;align-items:center;gap:8px;margin-top:8px}.bar{height:9px;background:#222c39;border-radius:999px;overflow:hidden;flex:1}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));border-radius:999px}.bar.short span{background:linear-gradient(90deg,var(--red),#ff9f43)}
+    .section-title{display:flex;justify-content:space-between;align-items:end;margin:18px 0 8px}.section-title h2{margin:0;font-size:18px}.section-title span{color:var(--muted);font-size:12px}
+    .symbol-list{display:grid;gap:9px}.symbol{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px}.symbol-head{display:flex;justify-content:space-between;gap:10px;align-items:start}.symbol-name{font-size:17px;font-weight:900}.dir{font-size:11px;border-radius:999px;padding:4px 7px;font-weight:900}.dir.long{background:#0c3d2d;color:#44e58d}.dir.short{background:#4b171b;color:#ff8b8f}.symbol-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0}.mini{background:#0c121a;border:1px solid #202a37;border-radius:8px;padding:8px}.mini b{display:block;font-size:14px}.mini span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.force-line{height:7px;background:#202a37;border-radius:999px;overflow:hidden}.force-line span{display:block;height:100%;background:linear-gradient(90deg,#2f81f7,#4ade80)}
+    .links{display:flex;gap:8px}.link{flex:1;text-align:center;border:1px solid var(--line);background:#0d1420;border-radius:8px;padding:9px 8px;font-size:12px;font-weight:900}.link.bybit{color:#f4b740}.link.tv{color:#79b6ff}
+    .notes{display:grid;gap:8px}.note{border-left:3px solid var(--blue);background:#0d1420;border-radius:8px;padding:10px;color:#d6e3f2;font-size:13px;line-height:1.45}.memo{white-space:pre-wrap;color:#d6e3f2;line-height:1.55;font-size:13px}
+    .status{background:#0d1420;border:1px solid var(--line);border-radius:8px;padding:10px;color:#bcd0e6;font-size:12px;line-height:1.45;white-space:pre-wrap;word-break:break-word}
+    textarea{width:100%;min-height:90px;background:#0d1420;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:11px;font:inherit} .secondary{border:1px solid var(--line);background:#151e29;color:#e6edf7;border-radius:8px;padding:10px 12px;font-weight:800;margin-top:8px}
+    details{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;margin-top:12px} summary{cursor:pointer;font-weight:900}.footer{color:var(--muted);font-size:11px;text-align:center;margin-top:24px}
+    @media(max-width:800px){.grid.four{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.two{grid-template-columns:1fr}.symbol-meta{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar-inner{align-items:flex-start}.refresh{padding:9px 10px}.value{font-size:21px}.market-state{font-size:24px}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="topbar-inner"><div class="brand"><h1>SSAFY 모바일 대시보드</h1><p>데스크 5형제 마스터 대시보드 원본을 읽는 정보확인용 뷰어</p></div><button class="refresh" onclick="loadDesktopSummary()">새로고침</button></div></div>
+  <main class="app">
+    <div class="chips"><span class="chip green">데스크 원본 기준</span><span class="chip">모바일 뷰어</span><span class="chip red">실거래 아님</span><span class="chip red">주문 실행 없음</span></div>
+    <section class="decision"><h2 id="decisionTitle">데스크 요약 확인 중</h2><p id="decisionReason">SSAFY는 거래 앱이 아니라 데스크 원본을 폰에서 확인하는 화면입니다.</p><p id="syncStatus">요약 불러오는 중...</p></section>
+
+    <section class="grid four">
+      <article class="card"><div class="label">총 잔고</div><div id="totalBalance" class="value">-</div><div id="balanceSub" class="sub">데스크 공식 기준</div></article>
+      <article class="card"><div class="label">공식 실현</div><div id="realizedPnl" class="value green">-</div><div class="sub">closed official</div></article>
+      <article class="card"><div class="label">공식 미실현</div><div id="unrealizedPnl" class="value">-</div><div id="positionSub" class="sub">open</div></article>
+      <article class="card"><div class="label">가용 시드</div><div id="freeSeed" class="value blue">-</div><div class="sub">다음 판단 여력</div></article>
+    </section>
+
+    <section class="grid two" style="margin-top:10px">
+      <article class="card"><h2>시장 국면</h2><div id="marketState" class="market-state">-</div><div class="ratio-row"><span>LONG</span><div class="bar"><span id="longBar" style="width:0%"></span></div><b id="longRatio">-</b></div><div class="ratio-row"><span>SHORT</span><div class="bar short"><span id="shortBar" style="width:0%"></span></div><b id="shortRatio">-</b></div><div id="gapBox" class="sub">김프 대기</div></article>
+      <article class="card"><h2>신호와 포지션</h2><div class="grid two"><div class="mini"><b id="a1Live">-</b><span>A1 실시간</span></div><div class="mini"><b id="a2Live">-</b><span>A2 실시간</span></div><div class="mini"><b id="openCount">-</b><span>OPEN</span></div><div class="mini"><b id="closedCount">-</b><span>CLOSED</span></div></div><div id="signalSub" class="sub">FTA grade 대기</div></article>
+    </section>
+
+    <div class="section-title"><h2>세력종목 TOP</h2><span id="symbolCount">-</span></div>
+    <section id="symbolList" class="symbol-list"><div class="status">세력종목 불러오는 중...</div></section>
+
+    <section class="grid two" style="margin-top:18px">
+      <article class="card"><h2>리스크 메모</h2><div id="riskNotes" class="notes"><div class="note">정보확인용</div></div></article>
+      <article class="card"><h2>연구 메모</h2><div id="researchMemo" class="memo">데스크 요약 대기</div></article>
+    </section>
+
+    <details><summary>수동 메모 보조</summary><p class="sub">원본은 데스크입니다. 이 메모는 폰에서 보는 임시 메모일 뿐 원본을 덮지 않습니다.</p><textarea id="localMemo" placeholder="임시 확인 메모"></textarea><button class="secondary" onclick="saveLocalMemo()">임시 메모 저장</button><div id="memoOut" class="status" style="margin-top:8px">임시 메모 없음</div></details>
+
+    <details><summary>Pi 연결 확인</summary><p class="sub">Pi Browser 연결 확인용입니다. 코인 주문/자동매매와 무관합니다.</p><button id="payBtn" class="secondary" disabled>Test Pi Payment</button><div id="status" class="status" style="margin-top:8px">Pi SDK 로딩 중...</div></details>
+    <div class="footer">SSAFY · 데스크 원본 기반 모바일 정보확인 뷰어</div>
+  </main>
+
+<script>
+const SUMMARY_URL = '/ssafy_summary.json';
+let lastSummary = null;
+const $ = id => document.getElementById(id);
+function val(v, fallback='-'){ return v === null || v === undefined || v === '' ? fallback : v; }
+function num(v, d=2){ const n=Number(v); return Number.isFinite(n) ? n.toLocaleString(undefined,{maximumFractionDigits:d}) : '-'; }
+function money(v){ const n=Number(v); return Number.isFinite(n) ? '$' + n.toLocaleString(undefined,{maximumFractionDigits:2,minimumFractionDigits:2}) : '-'; }
+function pct(v){ const n=Number(v); return Number.isFinite(n) ? n.toFixed(1)+'%' : '-'; }
+function esc(s){ return String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function dirClass(v){ return String(v||'').toUpperCase()==='SHORT' ? 'short' : 'long'; }
+function link(url,label,cls){ return url ? `<a class="link ${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label}</a>` : `<span class="link ${cls}">${label} 없음</span>`; }
+async function loadDesktopSummary(){
+  try{
+    $('syncStatus').textContent='데스크 요약 불러오는 중...';
+    const res = await fetch(SUMMARY_URL + '?t=' + Date.now(), {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    if(data.mode !== 'info_only' || data.trading_enabled !== false) throw new Error('safety flag mismatch');
+    lastSummary = data;
+    renderDesktopSummary(data);
+  }catch(err){
+    $('decisionTitle').textContent='데스크 요약 불러오기 실패';
+    $('decisionReason').textContent='데스크 export, GitHub push, Vercel 배포 상태를 확인해야 합니다.';
+    $('syncStatus').textContent='데스크 요약 불러오기 실패 / 수동 확인 필요\n' + (err.message || String(err));
+    $('symbolList').innerHTML='<div class="status">표시할 원본 데이터 없음</div>';
+  }
+}
+function renderDesktopSummary(data){
+  const p=data.portfolio||{}, m=data.market||{}, s=data.signals||{};
+  $('decisionTitle').textContent = data.trading_enabled === false ? '실거래 비활성 · 정보확인용' : '안전 플래그 확인 필요';
+  $('decisionReason').textContent = `${val(data.source)} / ${val(data.updated_at)} / 원본 갱신 기준`;
+  $('syncStatus').textContent = `로드 완료\nupdated_at: ${val(data.updated_at)}\nmode: ${val(data.mode)} / trading_enabled: ${data.trading_enabled}`;
+  $('totalBalance').textContent=money(p.total_balance); $('realizedPnl').textContent=money(p.realized_pnl); $('unrealizedPnl').textContent=money(p.unrealized_pnl); $('freeSeed').textContent=money(p.free_seed ?? p.available_seed);
+  $('balanceSub').textContent=`official closed ${val(p.official_closed_positions,0)}건`; $('positionSub').textContent=`official open ${val(p.official_open_positions,0)}건`;
+  $('marketState').textContent=val(m.state); $('longRatio').textContent=pct(m.long_ratio); $('shortRatio').textContent=pct(m.short_ratio); $('longBar').style.width=Math.max(0,Math.min(100,Number(m.long_ratio)||0))+'%'; $('shortBar').style.width=Math.max(0,Math.min(100,Number(m.short_ratio)||0))+'%'; $('gapBox').textContent=`BTC 김프 ${val(m.btc_gap)} · ETH 김프 ${val(m.eth_gap)}`;
+  $('a1Live').textContent=val(s.a1_live,0); $('a2Live').textContent=val(s.a2_live,0); $('openCount').textContent=val(s.open_positions,0); $('closedCount').textContent=val(s.closed_positions,0); $('signalSub').textContent=`FTA ${val(s.fta_grade)} · official ${val(s.active_hunt_official,0)} / shadow ${val(s.active_hunt_shadow,0)}`;
+  renderSymbols(data.top_symbols || []); renderNotes(data.risk_notes || []); $('researchMemo').textContent = data.research_memo || '연구 메모 없음';
+}
+function renderSymbols(items){
+  $('symbolCount').textContent = `${items.length}개 표시`;
+  if(!items.length){ $('symbolList').innerHTML='<div class="status">세력종목 TOP 없음</div>'; return; }
+  $('symbolList').innerHTML = items.map((x,i)=>{
+    const force = Math.max(0, Math.min(100, Number(x.force)||0));
+    return `<article class="symbol"><div class="symbol-head"><div><div class="symbol-name">#${i+1} ${esc(x.symbol)}</div><div class="sub">price ${num(x.price,6)} · hunt4h ${val(x.hunt_4h,0)}</div></div><span class="dir ${dirClass(x.direction)}">${esc(x.direction||'-')}</span></div><div class="symbol-meta"><div class="mini"><b>${num(x.force,1)}</b><span>force</span></div><div class="mini"><b>${esc(x.accumulation||'-')}</b><span>accumulation</span></div><div class="mini"><b>${esc(x.distribution||x.spread||'-')}</b><span>distribution</span></div><div class="mini"><b>${esc(x.trend||'-')}</b><span>4H trend</span></div></div><div class="force-line"><span style="width:${force}%"></span></div><div class="links" style="margin-top:10px">${link(x.bybit_url,'Bybit','bybit')}${link(x.tradingview_url,'TradingView','tv')}</div></article>`;
+  }).join('');
+}
+function renderNotes(notes){ $('riskNotes').innerHTML = notes.length ? notes.map(n=>`<div class="note">${esc(n)}</div>`).join('') : '<div class="note">정보확인용</div>'; }
+function saveLocalMemo(){ localStorage.setItem('ssafyLocalMemo',$('localMemo').value); $('memoOut').textContent=$('localMemo').value || '임시 메모 없음'; }
+function setStatus(m){ const el=$('status'); if(el) el.textContent=m; }
+async function postJson(url,payload){ const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); const text=await res.text(); let data; try{data=JSON.parse(text)}catch(_){data={raw:text}} if(!res.ok) throw new Error(JSON.stringify(data)); return data; }
+function onIncompletePaymentFound(payment){ setStatus('미완료 결제 발견:\n'+JSON.stringify(payment,null,2)); }
+window.addEventListener('load',function(){ $('localMemo').value=localStorage.getItem('ssafyLocalMemo')||''; $('memoOut').textContent=$('localMemo').value||'임시 메모 없음'; loadDesktopSummary(); setInterval(loadDesktopSummary,60000); try{ if(!window.Pi){ setStatus('Pi SDK가 로드되지 않았습니다. Pi Browser에서 열어주세요.'); return; } Pi.init({version:'2.0',sandbox:true}); setStatus('Pi SDK 초기화 완료. 결제 테스트 준비됨.'); $('payBtn').disabled=false; }catch(err){ setStatus('Pi init error:\n'+(err.message||String(err))); }});
+$('payBtn').addEventListener('click',async function(){ const payBtn=$('payBtn'); payBtn.disabled=true; try{ setStatus('Pi 인증 진행 중...'); await Pi.authenticate(['username','payments'],onIncompletePaymentFound); setStatus('인증 완료. 테스트 결제 생성 중...'); Pi.createPayment({amount:0.01,memo:'SSAFY test payment',metadata:{app:'SSAFY',type:'test'}},{onReadyForServerApproval:async function(paymentId){try{const result=await postJson('/api/approve-payment',{paymentId});setStatus('서버 승인 완료. Pi Wallet에서 승인하세요.\n\n'+JSON.stringify(result,null,2));}catch(err){setStatus('서버 승인 오류:\n'+(err.message||String(err)));payBtn.disabled=false;}},onReadyForServerCompletion:async function(paymentId,txid){try{const result=await postJson('/api/complete-payment',{paymentId,txid});setStatus('결제 완료.\n\n'+JSON.stringify(result,null,2));payBtn.disabled=false;}catch(err){setStatus('결제 완료 처리 오류:\n'+(err.message||String(err)));payBtn.disabled=false;}},onCancel:function(paymentId){setStatus('결제 취소. Payment ID: '+paymentId);payBtn.disabled=false;},onError:function(error,payment){setStatus('결제 오류:\n'+(error&&error.message?error.message:JSON.stringify(error))+'\n\nPayment:\n'+JSON.stringify(payment,null,2));payBtn.disabled=false;}}); }catch(err){ setStatus('오류:\n'+(err.message||String(err))); payBtn.disabled=false; }});
+</script>
+</body>
+</html>
