@@ -50,7 +50,7 @@
       <div class="section-title"><h2>차단/주의</h2><span>진입 금지 사유</span></div><div id="blockedSetups" class="list"></div>
     </section>
 
-    <section id="view-settings" class="view"><article class="card"><h2>TradingView 연결</h2><p class="sub">TV 버튼은 로그인 자체를 만들 수 없습니다. Pi Browser와 데스크 브라우저에서 각각 TradingView에 로그인해야 회장님 계정으로 열립니다. 저장 차트 URL을 넣으면 모든 TV 버튼이 그 레이아웃에 `BYBIT:종목USDT.P` 심볼을 붙입니다.</p><input id="tvBaseInput" placeholder="예: https://www.tradingview.com/chart/abcd1234/"><button class="secondary" onclick="saveTvBase()">TV 저장 차트 URL 저장</button><div id="tvBaseStatus" class="status" style="margin-top:8px">-</div></article><article class="card" style="margin-top:10px"><h2>데이터 연결 상태</h2><div id="settingsStatus" class="status">-</div></article></section>
+    <section id="view-settings" class="view"><article class="card"><h2>TradingView 연결</h2><p class="sub">TV 버튼은 로그인 자체를 만들 수 없습니다. Pi Browser와 데스크 브라우저에서 각각 TradingView에 로그인해야 회장님 계정으로 열립니다. 저장 차트 URL을 넣으면 모든 TV 버튼이 그 레이아웃에 `BYBIT:종목USDT.P` 심볼과 15분봉을 붙입니다.</p><input id="tvBaseInput" placeholder="예: https://www.tradingview.com/chart/abcd1234/"><input id="tvIntervalInput" placeholder="15" inputmode="numeric" style="margin-top:8px"><button class="secondary" onclick="saveTvBase()">TV 저장 차트 URL / 분봉 저장</button><div id="tvBaseStatus" class="status" style="margin-top:8px">-</div></article><article class="card" style="margin-top:10px"><h2>데이터 연결 상태</h2><div id="settingsStatus" class="status">-</div></article></section>
 
     <div class="footer">SSAFY · 데스크 원본 기반 모바일 정보확인 뷰어 · 주문/웹훅/write API 없음</div>
   </main>
@@ -67,7 +67,9 @@ function clsDir(v){const s=String(v||'').toUpperCase();return s==='SHORT'?'short
 function pair(sym){let s=String(sym||'').toUpperCase().replace(/[^A-Z0-9]/g,''); if(!s.endsWith('USDT')) s+='USDT'; return s;}
 function cleanBase(raw){let x=String(raw||'').trim().split('?')[0]; while(x.endsWith('/')) x=x.slice(0,-1); return x?x+'/':'';}
 function tvBase(){return cleanBase(localStorage.getItem('TRADINGVIEW_CHART_BASE')||'');}
-function tvUrl(item){const base=tvBase();const p=pair(item?.symbol);return base?base+'?symbol='+encodeURIComponent('BYBIT:'+p+'.P'):(item?.tradingview_url||('https://www.tradingview.com/chart/?symbol='+encodeURIComponent('BYBIT:'+p+'.P')));}
+function tvInterval(){return String(localStorage.getItem('TRADINGVIEW_INTERVAL')||'15').trim()||'15';}
+function appendTvInterval(url){const u=String(url||'');if(u.includes('interval='))return u;return u+(u.includes('?')?'&':'?')+'interval='+encodeURIComponent(tvInterval());}
+function tvUrl(item){const base=tvBase();const p=pair(item?.symbol);const sym='BYBIT:'+p+'.P';if(base)return appendTvInterval(base+'?symbol='+encodeURIComponent(sym));return appendTvInterval(item?.tradingview_url||('https://www.tradingview.com/chart/?symbol='+encodeURIComponent(sym)));}
 function bybitUrl(item){return item?.bybit_url || ('https://www.bybit.com/trade/usdt/'+pair(item?.symbol));}
 function links(item){return `<div class="links"><a class="link bybit" href="${esc(bybitUrl(item))}" target="_blank" rel="noopener">Bybit</a><a class="link tv" href="${esc(tvUrl(item))}" target="_blank" rel="noopener">TV</a></div>`;}
 function showTab(name){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+name));}
@@ -91,11 +93,13 @@ updated_at ${d.updated_at||'-'}
 source ${d.source||'-'}
 mode ${d.mode||'-'}
 trading_enabled ${d.trading_enabled}
-주의: SSAFY에는 주문 실행, 웹훅, 거래소 write 권한 없음`;const saved=tvBase();$('tvBaseInput').value=saved;$('tvBaseStatus').textContent=saved?`저장된 차트: ${saved}
-Pi Browser에서 TradingView 로그인이 되어 있어야 회장님 계정으로 열립니다.`:'저장된 TV 차트 URL 없음. 기본 TradingView 차트로 열립니다.';}
+TV interval ${tvInterval()}분
+주의: SSAFY에는 주문 실행, 웹훅, 거래소 write 권한 없음`;const saved=tvBase();$('tvBaseInput').value=saved;$('tvIntervalInput').value=tvInterval();$('tvBaseStatus').textContent=saved?`저장된 차트: ${saved}
+TV 분봉: ${tvInterval()}분
+Pi Browser에서 TradingView 로그인이 되어 있어야 회장님 계정으로 열립니다.`:`저장된 TV 차트 URL 없음. 기본 TradingView 차트로 ${tvInterval()}분봉을 엽니다.`;}
 function renderAll(d){renderMain(d);renderMaster(d);renderFta(d);renderOps(d);renderBriefing(d);renderSettings(d);}
 async function loadDesktopSummary(){try{const r=await fetch(SUMMARY_URL+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const d=await r.json();lastSummary=d;renderAll(d);}catch(e){$('decisionTitle').textContent='데스크 요약 불러오기 실패';$('decisionReason').textContent='수동 확인 필요 · 데스크/GitHub/Vercel 연결을 확인해야 합니다.';$('syncStatus').textContent=String(e);}}
-function saveTvBase(){const v=cleanBase($('tvBaseInput').value||'');if(v)localStorage.setItem('TRADINGVIEW_CHART_BASE',v);else localStorage.removeItem('TRADINGVIEW_CHART_BASE');if(lastSummary)renderAll(lastSummary);}
+function saveTvBase(){const v=cleanBase($('tvBaseInput').value||'');const interval=String($('tvIntervalInput').value||'15').trim()||'15';if(v)localStorage.setItem('TRADINGVIEW_CHART_BASE',v);else localStorage.removeItem('TRADINGVIEW_CHART_BASE');localStorage.setItem('TRADINGVIEW_INTERVAL',interval);if(lastSummary)renderAll(lastSummary);}
 loadDesktopSummary();setInterval(loadDesktopSummary,60000);
 </script>
 </body>
