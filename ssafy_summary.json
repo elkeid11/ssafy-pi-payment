@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-15 22:24:07 KST",
+  "updated_at": "2026-06-15 22:29:12 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,10 +24,10 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-15 22:19:39",
-    "market_extras": "2026-06-15 22:22:01",
+    "market_extras": "2026-06-15 22:27:02",
     "fta_dashboard": "2026-06-15 22:16 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-15 22:23:01",
+    "coin_ops": "2026-06-15 22:27:59",
     "briefing_room": null
   },
   "portfolio": {
@@ -46,8 +46,8 @@
     "state": "ACCUMULATION",
     "long_ratio": 94.3,
     "short_ratio": 5.7,
-    "btc_gap": "-0.75%",
-    "eth_gap": "-0.75%"
+    "btc_gap": "-0.76%",
+    "eth_gap": "-0.78%"
   },
   "signals": {
     "a1_live": 4,
@@ -470,8 +470,8 @@
       "state": "ACCUMULATION",
       "long_ratio": 94.3,
       "short_ratio": 5.7,
-      "btc_gap": "-0.75%",
-      "eth_gap": "-0.75%"
+      "btc_gap": "-0.76%",
+      "eth_gap": "-0.78%"
     },
     "signals": {
       "a1_live": 4,
@@ -1358,7 +1358,7 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-15 22:23:01",
+    "created": "2026-06-15 22:27:59",
     "intervals": [
       "60"
     ],
@@ -1407,9 +1407,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 1.6297367219601178,
-        "alt_return_pct": 2.3767180600144586,
-        "btc_relative_pct": -0.7469813380543409,
+        "btc_return_pct": 1.6922842794095283,
+        "alt_return_pct": 2.015613066242174,
+        "btc_relative_pct": -0.32332878683264576,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1423,9 +1423,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 5.918986811806559,
-        "alt_return_pct": 45.13968235269136,
-        "btc_relative_pct": -39.2206955408848,
+        "btc_return_pct": 5.9446780977030045,
+        "alt_return_pct": 44.36944126818718,
+        "btc_relative_pct": -38.42476317048418,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1434,19 +1434,19 @@
       },
       "hourly": {
         "timeframe": "hourly",
-        "regime_id": 1,
-        "name": "BTC-Lead Bull",
+        "regime_id": 2,
+        "name": "BTC Solo Pump",
         "btc_dir": "UP",
         "btcd_dir": "UP",
-        "total3_dir": "UP",
-        "btc_return_pct": 1.6697641825604848,
-        "alt_return_pct": 0.14978499807572532,
-        "btc_relative_pct": 1.5199791844847594,
-        "mode": "WATCH",
+        "total3_dir": "DOWN",
+        "btc_return_pct": 1.7869112180854296,
+        "alt_return_pct": -0.06025846181161508,
+        "btc_relative_pct": 1.8471696798970447,
+        "mode": "DEFENSE",
         "long_allowed": true,
-        "short_allowed": false,
-        "target": "BTC only",
-        "size": 0.7
+        "short_allowed": true,
+        "target": "Split",
+        "size": 0.5
       },
       "long_allowed": true,
       "effective_size": 1.2,
