@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-15 17:15:38 KST",
+  "updated_at": "2026-06-15 17:19:49 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,7 +24,7 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-15 17:07:37",
-    "market_extras": "2026-06-15 17:13:09",
+    "market_extras": "2026-06-15 17:18:20",
     "fta_dashboard": "2026-06-15 16:46 KST",
     "active_hunt": null,
     "coin_ops": "2026-06-15 17:07:32",
@@ -46,8 +46,8 @@
     "state": "DISTRIBUTION",
     "long_ratio": 32.6,
     "short_ratio": 61.8,
-    "btc_gap": "-1.01%",
-    "eth_gap": "-1.12%"
+    "btc_gap": "-0.99%",
+    "eth_gap": "-1.09%"
   },
   "signals": {
     "a1_live": 4,
@@ -470,8 +470,8 @@
       "state": "DISTRIBUTION",
       "long_ratio": 32.6,
       "short_ratio": 61.8,
-      "btc_gap": "-1.01%",
-      "eth_gap": "-1.12%"
+      "btc_gap": "-0.99%",
+      "eth_gap": "-1.09%"
     },
     "signals": {
       "a1_live": 4,
