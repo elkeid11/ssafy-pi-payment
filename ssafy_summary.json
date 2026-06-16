@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-16 16:24:10 KST",
+  "updated_at": "2026-06-16 16:29:11 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,10 +24,10 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-16 16:17:08",
-    "market_extras": "2026-06-16 16:22:02",
+    "market_extras": "2026-06-16 16:27:02",
     "fta_dashboard": "2026-06-16 16:20 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-16 16:19:26",
+    "coin_ops": "2026-06-16 16:23:55",
     "briefing_room": null
   },
   "portfolio": {
@@ -46,8 +46,8 @@
     "state": "ACCUMULATION",
     "long_ratio": 76.8,
     "short_ratio": 15.8,
-    "btc_gap": "-0.67%",
-    "eth_gap": "-0.58%"
+    "btc_gap": "-0.72%",
+    "eth_gap": "-0.64%"
   },
   "signals": {
     "a1_live": 2,
@@ -470,8 +470,8 @@
       "state": "ACCUMULATION",
       "long_ratio": 76.8,
       "short_ratio": 15.8,
-      "btc_gap": "-0.67%",
-      "eth_gap": "-0.58%"
+      "btc_gap": "-0.72%",
+      "eth_gap": "-0.64%"
     },
     "signals": {
       "a1_live": 2,
@@ -1358,7 +1358,7 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-16 16:19:26",
+    "created": "2026-06-16 16:23:55",
     "intervals": [
       "60"
     ],
@@ -1389,14 +1389,14 @@
         "seed_return_pct": 8.436009001513947
       },
       "month": {
-        "signals": 207,
-        "closed": 206,
-        "win_rate": 78.64077669902912,
-        "avg_return": 2.8797181797603475,
-        "sum_return": 593.2219450306316,
-        "realized_pnl_usdt": 1945.1246207973427,
+        "signals": 206,
+        "closed": 205,
+        "win_rate": 79.02439024390245,
+        "avg_return": 2.9090346844872577,
+        "sum_return": 596.3521103198879,
+        "realized_pnl_usdt": 1949.8198687312267,
         "open_pnl_usdt": 0.0,
-        "seed_return_pct": 19.451246207973426
+        "seed_return_pct": 19.498198687312268
       }
     },
     "regime": {
@@ -1407,9 +1407,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 0.16307824134977889,
-        "alt_return_pct": 0.41070927458874584,
-        "btc_relative_pct": -0.24763103323896696,
+        "btc_return_pct": 0.09579526665781657,
+        "alt_return_pct": 0.36824292755347793,
+        "btc_relative_pct": -0.27244766089566136,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1423,9 +1423,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 7.570028476545354,
-        "alt_return_pct": 16.432406986763166,
-        "btc_relative_pct": -8.862378510217813,
+        "btc_return_pct": 7.53696521388203,
+        "alt_return_pct": 16.422807123693644,
+        "btc_relative_pct": -8.885841909811614,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1439,9 +1439,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 0.11249560799655445,
-        "alt_return_pct": 0.7168118441620879,
-        "btc_relative_pct": -0.6043162361655334,
+        "btc_return_pct": 0.0441839318270576,
+        "alt_return_pct": 0.6596335206375176,
+        "btc_relative_pct": -0.61544958881046,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
