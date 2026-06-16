@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-16 16:44:09 KST",
+  "updated_at": "2026-06-16 16:49:10 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,10 +24,10 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-16 16:40:04",
-    "market_extras": "2026-06-16 16:42:02",
+    "market_extras": "2026-06-16 16:47:02",
     "fta_dashboard": "2026-06-16 16:20 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-16 16:39:53",
+    "coin_ops": "2026-06-16 16:44:55",
     "briefing_room": null
   },
   "portfolio": {
@@ -46,8 +46,8 @@
     "state": "ACCUMULATION",
     "long_ratio": 84.9,
     "short_ratio": 10.8,
-    "btc_gap": "-0.70%",
-    "eth_gap": "-0.63%"
+    "btc_gap": "-0.69%",
+    "eth_gap": "-0.71%"
   },
   "signals": {
     "a1_live": 2,
@@ -470,8 +470,8 @@
       "state": "ACCUMULATION",
       "long_ratio": 84.9,
       "short_ratio": 10.8,
-      "btc_gap": "-0.70%",
-      "eth_gap": "-0.63%"
+      "btc_gap": "-0.69%",
+      "eth_gap": "-0.71%"
     },
     "signals": {
       "a1_live": 2,
@@ -1358,7 +1358,7 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-16 16:39:53",
+    "created": "2026-06-16 16:44:55",
     "intervals": [
       "60"
     ],
@@ -1407,9 +1407,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 0.07693793070155941,
-        "alt_return_pct": 0.7614516134913492,
-        "btc_relative_pct": -0.6845136827897897,
+        "btc_return_pct": 0.019913346769806495,
+        "alt_return_pct": 0.6291849339747432,
+        "btc_relative_pct": -0.6092715872049367,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1423,9 +1423,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 7.5308063708368955,
-        "alt_return_pct": 16.893772527965282,
-        "btc_relative_pct": -9.362966157128387,
+        "btc_return_pct": 7.4517138601521316,
+        "alt_return_pct": 16.66070950988067,
+        "btc_relative_pct": -9.20899564972854,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1434,19 +1434,19 @@
       },
       "hourly": {
         "timeframe": "hourly",
-        "regime_id": 3,
-        "name": "Alt-Season",
-        "btc_dir": "UP",
+        "regime_id": 7,
+        "name": "Risk-On Rebound",
+        "btc_dir": "DOWN",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 0.01930219547394696,
-        "alt_return_pct": 1.0365412418432143,
-        "btc_relative_pct": -1.0172390463692673,
-        "mode": "ATTACK",
+        "btc_return_pct": -0.00934950093268716,
+        "alt_return_pct": 0.9349089597526455,
+        "btc_relative_pct": -0.9442584606853327,
+        "mode": "ACCUM",
         "long_allowed": true,
         "short_allowed": true,
         "target": "Alt OK",
-        "size": 1.2
+        "size": 0.6
       },
       "long_allowed": true,
       "effective_size": 1.2,
@@ -1458,12 +1458,12 @@
         "interval": "60",
         "entry_blocked": false,
         "score": 0,
-        "close": 0.02389,
+        "close": 0.02419,
         "trigger": "FTA_v1.2_A1",
         "regime_id": 3,
         "regime_name": "Alt-Season",
         "size_multiplier": 1.2,
-        "bakktatr_force_score": 43.4,
+        "bakktatr_force_score": 34.9,
         "bakktatr_direction": "SHORT",
         "bakktatr_alignment": "CONFLICT_SHORT",
         "rsi14": NaN,
