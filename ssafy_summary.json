@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18 21:18:59 KST",
+  "updated_at": "2026-06-18 21:24:04 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,10 +24,10 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-18 21:14:28",
-    "market_extras": "2026-06-18 21:17:01",
-    "fta_dashboard": "2026-06-18 20:46 KST",
+    "market_extras": "2026-06-18 21:22:02",
+    "fta_dashboard": "2026-06-18 21:20 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-18 21:18:07",
+    "coin_ops": "2026-06-18 21:23:00",
     "briefing_room": null
   },
   "portfolio": {
@@ -46,8 +46,8 @@
     "state": "DISTRIBUTION",
     "long_ratio": 8.2,
     "short_ratio": 88.2,
-    "btc_gap": "-0.60%",
-    "eth_gap": "-0.61%"
+    "btc_gap": "-0.64%",
+    "eth_gap": "-0.65%"
   },
   "signals": {
     "a1_live": 11,
@@ -470,8 +470,8 @@
       "state": "DISTRIBUTION",
       "long_ratio": 8.2,
       "short_ratio": 88.2,
-      "btc_gap": "-0.60%",
-      "eth_gap": "-0.61%"
+      "btc_gap": "-0.64%",
+      "eth_gap": "-0.65%"
     },
     "signals": {
       "a1_live": 11,
@@ -879,7 +879,7 @@
     ]
   },
   "fta_research": {
-    "generated_at_kst": "2026-06-18 20:46 KST",
+    "generated_at_kst": "2026-06-18 21:20 KST",
     "grade": "GREEN",
     "blockers": [],
     "cum": {
@@ -1358,7 +1358,7 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-18 21:18:07",
+    "created": "2026-06-18 21:23:00",
     "intervals": [
       "60"
     ],
@@ -1407,9 +1407,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "UP",
         "total3_dir": "DOWN",
-        "btc_return_pct": -0.7415093227620573,
-        "alt_return_pct": -3.7544723802698217,
-        "btc_relative_pct": 3.0129630575077644,
+        "btc_return_pct": -0.5499669647593075,
+        "alt_return_pct": -3.2584678965452514,
+        "btc_relative_pct": 2.708500931785944,
         "mode": "DEFENSE/SHORT",
         "long_allowed": false,
         "short_allowed": true,
@@ -1423,9 +1423,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 0.6009433962264055,
-        "alt_return_pct": 7.468467487232603,
-        "btc_relative_pct": -6.867524091006198,
+        "btc_return_pct": 0.8040880503144665,
+        "alt_return_pct": 8.027550937070941,
+        "btc_relative_pct": -7.223462886756475,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1434,18 +1434,18 @@
       },
       "hourly": {
         "timeframe": "hourly",
-        "regime_id": 6,
-        "name": "Panic Shelter",
-        "btc_dir": "DOWN",
+        "regime_id": 2,
+        "name": "BTC Solo Pump",
+        "btc_dir": "UP",
         "btcd_dir": "UP",
         "total3_dir": "DOWN",
-        "btc_return_pct": -0.08914798878391084,
-        "alt_return_pct": -2.9976905391884894,
-        "btc_relative_pct": 2.9085425504045785,
-        "mode": "DEFENSE/SHORT",
-        "long_allowed": false,
+        "btc_return_pct": 0.1111617653487551,
+        "alt_return_pct": -2.4838681467094137,
+        "btc_relative_pct": 2.595029912058169,
+        "mode": "DEFENSE",
+        "long_allowed": true,
         "short_allowed": true,
-        "target": "Alt short",
+        "target": "Split",
         "size": 0.5
       },
       "long_allowed": false,
