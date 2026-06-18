@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18 17:09:07 KST",
+  "updated_at": "2026-06-18 17:14:04 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,10 +24,10 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-18 17:06:22",
-    "market_extras": "2026-06-18 17:07:01",
+    "market_extras": "2026-06-18 17:12:02",
     "fta_dashboard": "2026-06-18 16:46 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-18 17:08:02",
+    "coin_ops": "2026-06-18 17:13:02",
     "briefing_room": null
   },
   "portfolio": {
@@ -46,8 +46,8 @@
     "state": "ACCUMULATION",
     "long_ratio": 61.4,
     "short_ratio": 29.5,
-    "btc_gap": "-0.90%",
-    "eth_gap": "-0.90%"
+    "btc_gap": "-0.91%",
+    "eth_gap": "-0.87%"
   },
   "signals": {
     "a1_live": 10,
@@ -470,8 +470,8 @@
       "state": "ACCUMULATION",
       "long_ratio": 61.4,
       "short_ratio": 29.5,
-      "btc_gap": "-0.90%",
-      "eth_gap": "-0.90%"
+      "btc_gap": "-0.91%",
+      "eth_gap": "-0.87%"
     },
     "signals": {
       "a1_live": 10,
@@ -1358,7 +1358,7 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-18 17:08:02",
+    "created": "2026-06-18 17:13:02",
     "intervals": [
       "60"
     ],
@@ -1402,18 +1402,18 @@
     "regime": {
       "daily": {
         "timeframe": "daily",
-        "regime_id": 6,
-        "name": "Panic Shelter",
-        "btc_dir": "DOWN",
+        "regime_id": 2,
+        "name": "BTC Solo Pump",
+        "btc_dir": "UP",
         "btcd_dir": "UP",
         "total3_dir": "DOWN",
-        "btc_return_pct": -0.07398032774680319,
-        "alt_return_pct": -0.7049713517183936,
-        "btc_relative_pct": 0.6309910239715905,
-        "mode": "DEFENSE/SHORT",
-        "long_allowed": false,
+        "btc_return_pct": 0.017370642992964314,
+        "alt_return_pct": -0.5334469010166862,
+        "btc_relative_pct": 0.5508175440096506,
+        "mode": "DEFENSE",
+        "long_allowed": true,
         "short_allowed": true,
-        "target": "Alt short",
+        "target": "Split",
         "size": 0.5
       },
       "weekly": {
@@ -1423,9 +1423,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 1.2800314465408746,
-        "alt_return_pct": 10.69976322589058,
-        "btc_relative_pct": -9.419731779349705,
+        "btc_return_pct": 1.4171383647798796,
+        "alt_return_pct": 10.948386363361491,
+        "btc_relative_pct": -9.531247998581613,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1439,18 +1439,18 @@
         "btc_dir": "DOWN",
         "btcd_dir": "UP",
         "total3_dir": "DOWN",
-        "btc_return_pct": -0.32421128181013836,
-        "alt_return_pct": -0.8238098217039959,
-        "btc_relative_pct": 0.4995985398938575,
+        "btc_return_pct": -0.24671612332403114,
+        "alt_return_pct": -0.6637139370478391,
+        "btc_relative_pct": 0.41699781372380795,
         "mode": "DEFENSE/SHORT",
         "long_allowed": false,
         "short_allowed": true,
         "target": "Alt short",
         "size": 0.5
       },
-      "long_allowed": false,
-      "effective_size": 0.25,
-      "weekly_aligned": false
+      "long_allowed": true,
+      "effective_size": 0.5,
+      "weekly_aligned": true
     },
     "signals": [],
     "positions_open": [
