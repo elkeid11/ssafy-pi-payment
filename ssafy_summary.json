@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-18 09:18:42 KST",
+  "updated_at": "2026-06-18 09:24:09 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,8 +24,8 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-18 09:12:04",
-    "market_extras": "2026-06-18 09:17:02",
-    "fta_dashboard": "2026-06-18 08:50 KST",
+    "market_extras": "2026-06-18 09:22:02",
+    "fta_dashboard": "2026-06-18 09:20 KST",
     "active_hunt": null,
     "coin_ops": "2026-06-18 09:18:07",
     "briefing_room": null
@@ -46,8 +46,8 @@
     "state": "ACCUMULATION",
     "long_ratio": 70.8,
     "short_ratio": 21.2,
-    "btc_gap": "-0.73%",
-    "eth_gap": "-0.69%"
+    "btc_gap": "-0.70%",
+    "eth_gap": "-0.71%"
   },
   "signals": {
     "a1_live": 4,
@@ -470,8 +470,8 @@
       "state": "ACCUMULATION",
       "long_ratio": 70.8,
       "short_ratio": 21.2,
-      "btc_gap": "-0.73%",
-      "eth_gap": "-0.69%"
+      "btc_gap": "-0.70%",
+      "eth_gap": "-0.71%"
     },
     "signals": {
       "a1_live": 4,
@@ -879,7 +879,7 @@
     ]
   },
   "fta_research": {
-    "generated_at_kst": "2026-06-18 08:50 KST",
+    "generated_at_kst": "2026-06-18 09:20 KST",
     "grade": "GREEN",
     "blockers": [],
     "cum": {
