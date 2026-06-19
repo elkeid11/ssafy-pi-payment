@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19 20:43:59 KST",
+  "updated_at": "2026-06-19 20:48:54 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,10 +24,10 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-19 20:37:39",
-    "market_extras": "2026-06-19 20:42:10",
+    "market_extras": "2026-06-19 20:47:11",
     "fta_dashboard": "2026-06-19 20:20 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-19 20:40:40",
+    "coin_ops": "2026-06-19 20:44:39",
     "briefing_room": null
   },
   "portfolio": {
@@ -46,8 +46,8 @@
     "state": "NEUTRAL",
     "long_ratio": 53.7,
     "short_ratio": 40.2,
-    "btc_gap": "-1.69%",
-    "eth_gap": "-1.70%"
+    "btc_gap": "-1.64%",
+    "eth_gap": "-1.61%"
   },
   "signals": {
     "a1_live": 14,
@@ -470,8 +470,8 @@
       "state": "NEUTRAL",
       "long_ratio": 53.7,
       "short_ratio": 40.2,
-      "btc_gap": "-1.69%",
-      "eth_gap": "-1.70%"
+      "btc_gap": "-1.64%",
+      "eth_gap": "-1.61%"
     },
     "signals": {
       "a1_live": 14,
@@ -1358,7 +1358,7 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-19 20:40:40",
+    "created": "2026-06-19 20:44:39",
     "intervals": [
       "60"
     ],
@@ -1402,19 +1402,19 @@
     "regime": {
       "daily": {
         "timeframe": "daily",
-        "regime_id": 6,
-        "name": "Panic Shelter",
+        "regime_id": 8,
+        "name": "Macro Bear",
         "btc_dir": "DOWN",
-        "btcd_dir": "UP",
+        "btcd_dir": "DOWN",
         "total3_dir": "DOWN",
-        "btc_return_pct": -0.5689755737832591,
-        "alt_return_pct": -0.6646969343232765,
-        "btc_relative_pct": 0.09572136054001734,
-        "mode": "DEFENSE/SHORT",
+        "btc_return_pct": -0.4712325632031722,
+        "alt_return_pct": -0.2619409807858213,
+        "btc_relative_pct": -0.2092915824173509,
+        "mode": "WATCH/SHORT",
         "long_allowed": false,
         "short_allowed": true,
-        "target": "Alt short",
-        "size": 0.5
+        "target": "Short only",
+        "size": 0.8
       },
       "weekly": {
         "timeframe": "weekly",
@@ -1423,9 +1423,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": -1.5399601240654537,
-        "alt_return_pct": 4.08570244122187,
-        "btc_relative_pct": -5.625662565287324,
+        "btc_return_pct": -1.4589178735142871,
+        "alt_return_pct": 4.20363202857777,
+        "btc_relative_pct": -5.662549902092057,
         "mode": "ACCUM",
         "long_allowed": true,
         "short_allowed": true,
@@ -1439,9 +1439,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": -0.22041467304624307,
-        "alt_return_pct": 0.9291905619095682,
-        "btc_relative_pct": -1.1496052349558112,
+        "btc_return_pct": -0.12743221690589834,
+        "alt_return_pct": 1.2711905442680134,
+        "btc_relative_pct": -1.3986227611739117,
         "mode": "ACCUM",
         "long_allowed": true,
         "short_allowed": true,
@@ -1449,7 +1449,7 @@
         "size": 0.6
       },
       "long_allowed": false,
-      "effective_size": 0.25,
+      "effective_size": 0.4,
       "weekly_aligned": false
     },
     "signals": [],
