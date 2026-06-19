@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-19 19:08:56 KST",
+  "updated_at": "2026-06-19 19:13:54 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,10 +24,10 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-19 18:59:04",
-    "market_extras": "2026-06-19 19:07:11",
+    "market_extras": "2026-06-19 19:12:10",
     "fta_dashboard": "2026-06-19 18:47 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-19 19:04:40",
+    "coin_ops": "2026-06-19 19:09:38",
     "briefing_room": null
   },
   "portfolio": {
@@ -46,8 +46,8 @@
     "state": "DISTRIBUTION",
     "long_ratio": 26.6,
     "short_ratio": 69.6,
-    "btc_gap": "-1.72%",
-    "eth_gap": "-1.74%"
+    "btc_gap": "-1.76%",
+    "eth_gap": "-1.69%"
   },
   "signals": {
     "a1_live": 14,
@@ -470,8 +470,8 @@
       "state": "DISTRIBUTION",
       "long_ratio": 26.6,
       "short_ratio": 69.6,
-      "btc_gap": "-1.72%",
-      "eth_gap": "-1.74%"
+      "btc_gap": "-1.76%",
+      "eth_gap": "-1.69%"
     },
     "signals": {
       "a1_live": 14,
@@ -1358,7 +1358,7 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-19 19:04:40",
+    "created": "2026-06-19 19:09:38",
     "intervals": [
       "60"
     ],
@@ -1407,9 +1407,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "UP",
         "total3_dir": "DOWN",
-        "btc_return_pct": -0.8911301793862347,
-        "alt_return_pct": -2.7918236131471543,
-        "btc_relative_pct": 1.9006934337609196,
+        "btc_return_pct": -0.8266038992309266,
+        "alt_return_pct": -2.722863009156791,
+        "btc_relative_pct": 1.8962591099258645,
         "mode": "DEFENSE/SHORT",
         "long_allowed": false,
         "short_allowed": true,
@@ -1423,9 +1423,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": -1.8590934912844248,
-        "alt_return_pct": 3.0508381349296423,
-        "btc_relative_pct": -4.9099316262140675,
+        "btc_return_pct": -1.8101534137671016,
+        "alt_return_pct": 3.158611130333626,
+        "btc_relative_pct": -4.968764544100727,
         "mode": "ACCUM",
         "long_allowed": true,
         "short_allowed": true,
@@ -1439,9 +1439,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "UP",
         "total3_dir": "DOWN",
-        "btc_return_pct": -0.0953195688671915,
-        "alt_return_pct": -0.31151006445088847,
-        "btc_relative_pct": 0.21619049558369696,
+        "btc_return_pct": -0.03460340651312288,
+        "alt_return_pct": -0.22780237468859815,
+        "btc_relative_pct": 0.19319896817547527,
         "mode": "DEFENSE/SHORT",
         "long_allowed": false,
         "short_allowed": true,
