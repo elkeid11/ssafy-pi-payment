@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-21 05:58:35 KST",
+  "updated_at": "2026-06-21 06:03:35 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,17 +24,17 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-21 05:56:07",
-    "market_extras": "2026-06-21 05:57:01",
+    "market_extras": "2026-06-21 06:02:01",
     "fta_dashboard": "2026-06-21 05:45 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-21 05:57:28",
+    "coin_ops": "2026-06-21 06:02:31",
     "briefing_room": null
   },
   "portfolio": {
     "base_seed": 10000.0,
-    "total_balance": 12836.25,
+    "total_balance": 12837.32,
     "realized_pnl": 2837.73,
-    "unrealized_pnl": -1.48,
+    "unrealized_pnl": -0.42,
     "available_seed": 12837.73,
     "free_seed": 10687.73,
     "official_open_positions": 6,
@@ -46,8 +46,8 @@
     "state": "NEUTRAL",
     "long_ratio": 40.0,
     "short_ratio": 48.9,
-    "btc_gap": "-1.17%",
-    "eth_gap": "-1.23%"
+    "btc_gap": "-1.18%",
+    "eth_gap": "-1.20%"
   },
   "signals": {
     "a1_live": 3,
@@ -456,9 +456,9 @@
   "master": {
     "portfolio": {
       "base_seed": 10000.0,
-      "total_balance": 12836.25,
+      "total_balance": 12837.32,
       "realized_pnl": 2837.73,
-      "unrealized_pnl": -1.48,
+      "unrealized_pnl": -0.42,
       "available_seed": 12837.73,
       "free_seed": 10687.73,
       "official_open_positions": 6,
@@ -470,8 +470,8 @@
       "state": "NEUTRAL",
       "long_ratio": 40.0,
       "short_ratio": 48.9,
-      "btc_gap": "-1.17%",
-      "eth_gap": "-1.23%"
+      "btc_gap": "-1.18%",
+      "eth_gap": "-1.20%"
     },
     "signals": {
       "a1_live": 3,
@@ -1358,16 +1358,16 @@
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-21 05:57:28",
+    "created": "2026-06-21 06:02:31",
     "intervals": [
       "60"
     ],
     "stats": {
       "open": 6,
       "closed": 322,
-      "total_seed_return_pct": 28.690482204181983,
+      "total_seed_return_pct": 28.701150027252233,
       "realized_pnl_usdt": 2870.533110329285,
-      "open_pnl_usdt": -1.4848899110867508,
+      "open_pnl_usdt": -0.41810760406160163,
       "today": {
         "signals": 5,
         "closed": 2,
@@ -1375,7 +1375,7 @@
         "avg_return": 0.5148220870647924,
         "sum_return": 1.0296441741295848,
         "realized_pnl_usdt": 3.0889325223887543,
-        "open_pnl_usdt": -1.4848899110867508,
+        "open_pnl_usdt": -0.41810760406160163,
         "seed_return_pct": 0.030889325223887543
       },
       "week": {
@@ -1385,7 +1385,7 @@
         "avg_return": 2.371031330480634,
         "sum_return": 135.14878583739613,
         "realized_pnl_usdt": 656.7821513549983,
-        "open_pnl_usdt": -1.4848899110867508,
+        "open_pnl_usdt": -0.41810760406160163,
         "seed_return_pct": 6.567821513549983
       },
       "month": {
@@ -1395,7 +1395,7 @@
         "avg_return": 2.677531528590189,
         "sum_return": 562.2816210039397,
         "realized_pnl_usdt": 1877.3645559981887,
-        "open_pnl_usdt": -1.4848899110867508,
+        "open_pnl_usdt": -0.41810760406160163,
         "seed_return_pct": 18.773645559981887
       }
     },
@@ -1407,9 +1407,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 0.5988137095745527,
-        "alt_return_pct": 6.8463158298505675,
-        "btc_relative_pct": -6.247502120276015,
+        "btc_return_pct": 0.657860551828171,
+        "alt_return_pct": 6.866430419369671,
+        "btc_relative_pct": -6.2085698675415,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1423,9 +1423,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": -0.8187330594908837,
-        "alt_return_pct": 13.955816307836134,
-        "btc_relative_pct": -14.774549367327017,
+        "btc_return_pct": -0.7606734909945567,
+        "alt_return_pct": 14.17205353834923,
+        "btc_relative_pct": -14.932727029343788,
         "mode": "ACCUM",
         "long_allowed": true,
         "short_allowed": true,
@@ -1439,9 +1439,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": -0.03895147022244805,
-        "alt_return_pct": 0.8595020285660031,
-        "btc_relative_pct": -0.8984534987884512,
+        "btc_return_pct": -0.32493654070439026,
+        "alt_return_pct": 0.26588165546764664,
+        "btc_relative_pct": -0.5908181961720369,
         "mode": "ACCUM",
         "long_allowed": true,
         "short_allowed": true,
@@ -1539,11 +1539,11 @@
         "interval": "60",
         "status": "OPEN",
         "entry": 1.153,
-        "last_price": 1.1473,
+        "last_price": 1.1514,
         "close_price": null,
-        "current_return_pct": -0.494362532523851,
-        "virtual_pnl_usdt": -1.4831,
-        "seed_return_pct": -0.0148,
+        "current_return_pct": -0.13876843018213458,
+        "virtual_pnl_usdt": -0.4163,
+        "seed_return_pct": -0.0042,
         "close_reason": null,
         "decision_summary": "FTA A1 (rr_safe=2.34, rr_point=2.78) / 국면 #3 Alt-Season / BAKKTA 1.4 ALIGNED_LONG / size x0.6",
         "risk_plan": "entry 기준 -1.5% stop, +3% TP (FTA_A1_DEF; watch_target2=+6% 참고용)",
@@ -1861,11 +1861,11 @@
         "interval": "60",
         "status": "OPEN",
         "entry": 1.153,
-        "last_price": 1.1473,
+        "last_price": 1.1514,
         "close_price": null,
-        "current_return_pct": -0.494362532523851,
-        "virtual_pnl_usdt": -1.4831,
-        "seed_return_pct": -0.0148,
+        "current_return_pct": -0.13876843018213458,
+        "virtual_pnl_usdt": -0.4163,
+        "seed_return_pct": -0.0042,
         "close_reason": null,
         "decision_summary": "FTA A1 (rr_safe=2.34, rr_point=2.78) / 국면 #3 Alt-Season / BAKKTA 1.4 ALIGNED_LONG / size x0.6",
         "risk_plan": "entry 기준 -1.5% stop, +3% TP (FTA_A1_DEF; watch_target2=+6% 참고용)",
