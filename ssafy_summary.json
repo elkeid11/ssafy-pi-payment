@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-06-22 14:13:35 KST",
+  "updated_at": "2026-06-22 14:18:35 KST",
   "source": "desktop_master_dashboard",
   "mode": "info_only",
   "trading_enabled": false,
@@ -24,17 +24,17 @@
   },
   "desktop_generated_at": {
     "market_summary": "2026-06-22 14:10:31",
-    "market_extras": "2026-06-22 14:12:01",
-    "fta_dashboard": "2026-06-22 13:46 KST",
+    "market_extras": "2026-06-22 14:17:01",
+    "fta_dashboard": "2026-06-22 14:15 KST",
     "active_hunt": null,
-    "coin_ops": "2026-06-22 14:12:31",
+    "coin_ops": "2026-06-22 14:17:31",
     "briefing_room": null
   },
   "portfolio": {
     "base_seed": 10000.0,
-    "total_balance": 12848.62,
+    "total_balance": 12847.25,
     "realized_pnl": 2841.54,
-    "unrealized_pnl": 7.08,
+    "unrealized_pnl": 5.7,
     "available_seed": 12841.54,
     "free_seed": 10991.54,
     "official_open_positions": 5,
@@ -46,14 +46,14 @@
     "state": "DISTRIBUTION",
     "long_ratio": 24.7,
     "short_ratio": 68.2,
-    "btc_gap": "-1.64%",
-    "eth_gap": "-1.50%"
+    "btc_gap": "-1.54%",
+    "eth_gap": "-1.51%"
   },
   "signals": {
     "a1_live": 2,
-    "a2_live": 1,
-    "active_hunt_raw": 54,
-    "active_hunt_official": 3,
+    "a2_live": 2,
+    "active_hunt_raw": 55,
+    "active_hunt_official": 4,
     "active_hunt_shadow": 51,
     "open_positions": 5,
     "closed_positions": 326,
@@ -456,9 +456,9 @@
   "master": {
     "portfolio": {
       "base_seed": 10000.0,
-      "total_balance": 12848.62,
+      "total_balance": 12847.25,
       "realized_pnl": 2841.54,
-      "unrealized_pnl": 7.08,
+      "unrealized_pnl": 5.7,
       "available_seed": 12841.54,
       "free_seed": 10991.54,
       "official_open_positions": 5,
@@ -470,14 +470,14 @@
       "state": "DISTRIBUTION",
       "long_ratio": 24.7,
       "short_ratio": 68.2,
-      "btc_gap": "-1.64%",
-      "eth_gap": "-1.50%"
+      "btc_gap": "-1.54%",
+      "eth_gap": "-1.51%"
     },
     "signals": {
       "a1_live": 2,
-      "a2_live": 1,
-      "active_hunt_raw": 54,
-      "active_hunt_official": 3,
+      "a2_live": 2,
+      "active_hunt_raw": 55,
+      "active_hunt_official": 4,
       "active_hunt_shadow": 51,
       "open_positions": 5,
       "closed_positions": 326,
@@ -879,7 +879,7 @@
     ]
   },
   "fta_research": {
-    "generated_at_kst": "2026-06-22 13:46 KST",
+    "generated_at_kst": "2026-06-22 14:15 KST",
     "grade": "GREEN",
     "blockers": [],
     "cum": {
@@ -1067,7 +1067,7 @@
       {
         "d": "D57",
         "date": "2026-06-22",
-        "N": 3,
+        "N": 4,
         "TP": 0,
         "SL": 0,
         "TO": 0,
@@ -1082,10 +1082,10 @@
       "target_date": "2026-06-22",
       "d_label": "Dpre",
       "counts": {
-        "raw": 54,
-        "official": 3,
+        "raw": 55,
+        "official": 4,
         "A1": 2,
-        "A2": 1,
+        "A2": 2,
         "shadow": 51,
         "closed": 0,
         "wr_pct": 0,
@@ -1328,6 +1328,19 @@
           "tradingview_url": "https://www.tradingview.com/chart/?symbol=BYBIT:DOGEUSDT.P&interval=15"
         },
         {
+          "symbol": "DOGE",
+          "tier": null,
+          "entry_ts": "2026-06-22 13:53:41+09:00",
+          "side": null,
+          "price": 0.08323,
+          "result": "OPEN",
+          "is_shadow": false,
+          "is_A1": false,
+          "is_A2": true,
+          "bybit_url": "https://www.bybit.com/trade/usdt/DOGEUSDT",
+          "tradingview_url": "https://www.tradingview.com/chart/?symbol=BYBIT:DOGEUSDT.P&interval=15"
+        },
+        {
           "symbol": "DOT",
           "tier": null,
           "entry_ts": "2026-06-22 09:18:21+09:00",
@@ -1339,35 +1352,22 @@
           "is_A2": false,
           "bybit_url": "https://www.bybit.com/trade/usdt/DOTUSDT",
           "tradingview_url": "https://www.tradingview.com/chart/?symbol=BYBIT:DOTUSDT.P&interval=15"
-        },
-        {
-          "symbol": "DOT",
-          "tier": null,
-          "entry_ts": "2026-06-22 13:36:41+09:00",
-          "side": null,
-          "price": 0.95,
-          "result": "OPEN",
-          "is_shadow": false,
-          "is_A1": false,
-          "is_A2": true,
-          "bybit_url": "https://www.bybit.com/trade/usdt/DOTUSDT",
-          "tradingview_url": "https://www.tradingview.com/chart/?symbol=BYBIT:DOTUSDT.P&interval=15"
         }
       ]
     }
   },
   "coin_ops": {
     "status": "ok",
-    "created": "2026-06-22 14:12:31",
+    "created": "2026-06-22 14:17:31",
     "intervals": [
       "60"
     ],
     "stats": {
       "open": 5,
       "closed": 326,
-      "total_seed_return_pct": 28.81419258155186,
+      "total_seed_return_pct": 28.80045212353659,
       "realized_pnl_usdt": 2874.342377021053,
-      "open_pnl_usdt": 7.076881134132917,
+      "open_pnl_usdt": 5.702835332606204,
       "today": {
         "signals": 2,
         "closed": 0,
@@ -1375,7 +1375,7 @@
         "avg_return": null,
         "sum_return": null,
         "realized_pnl_usdt": 0.0,
-        "open_pnl_usdt": 7.076881134132917,
+        "open_pnl_usdt": 5.702835332606204,
         "seed_return_pct": 0.0
       },
       "week": {
@@ -1385,7 +1385,7 @@
         "avg_return": 1.1325170638039421,
         "sum_return": 43.0356484245498,
         "realized_pnl_usdt": 128.7111929136063,
-        "open_pnl_usdt": 7.076881134132917,
+        "open_pnl_usdt": 5.702835332606204,
         "seed_return_pct": 1.287111929136063
       },
       "month": {
@@ -1395,7 +1395,7 @@
         "avg_return": 2.634948653626596,
         "sum_return": 553.3392172615852,
         "realized_pnl_usdt": 1843.440570577577,
-        "open_pnl_usdt": 7.076881134132917,
+        "open_pnl_usdt": 5.702835332606204,
         "seed_return_pct": 18.434405705775774
       }
     },
@@ -1407,9 +1407,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 1.518091632244789,
-        "alt_return_pct": 1.5870086733737627,
-        "btc_relative_pct": -0.06891704112897368,
+        "btc_return_pct": 1.4668933717214783,
+        "alt_return_pct": 1.49158411934687,
+        "btc_relative_pct": -0.024690747625391696,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1423,9 +1423,9 @@
         "btc_dir": "DOWN",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": -3.0821938473792776,
-        "alt_return_pct": 3.399896051484181,
-        "btc_relative_pct": -6.4820898988634585,
+        "btc_return_pct": -3.1274514536743125,
+        "alt_return_pct": 3.237188397959984,
+        "btc_relative_pct": -6.364639851634296,
         "mode": "ACCUM",
         "long_allowed": true,
         "short_allowed": true,
@@ -1439,9 +1439,9 @@
         "btc_dir": "UP",
         "btcd_dir": "DOWN",
         "total3_dir": "UP",
-        "btc_return_pct": 1.518091632244789,
-        "alt_return_pct": 1.5587631334500602,
-        "btc_relative_pct": -0.04067150120527119,
+        "btc_return_pct": 1.4838014392399845,
+        "alt_return_pct": 1.4906384239624024,
+        "btc_relative_pct": -0.006836984722417894,
         "mode": "ATTACK",
         "long_allowed": true,
         "short_allowed": true,
@@ -1523,11 +1523,11 @@
         "interval": "60",
         "status": "OPEN",
         "entry": 0.655,
-        "last_price": 0.6678,
+        "last_price": 0.6648,
         "close_price": null,
-        "current_return_pct": 1.9541984732824202,
-        "virtual_pnl_usdt": 5.8626,
-        "seed_return_pct": 0.0586,
+        "current_return_pct": 1.4961832061068492,
+        "virtual_pnl_usdt": 4.4885,
+        "seed_return_pct": 0.0449,
         "close_reason": null,
         "decision_summary": "FTA A1 (rr_safe=2.75, rr_point=2.29) / 국면 #3 Alt-Season / BAKKTA 8.0 ALIGNED_LONG / size x0.6",
         "risk_plan": "entry 기준 -1.5% stop, +3% TP (FTA_A1_DEF; watch_target2=+6% 참고용)",
@@ -1845,11 +1845,11 @@
         "interval": "60",
         "status": "OPEN",
         "entry": 0.655,
-        "last_price": 0.6678,
+        "last_price": 0.6648,
         "close_price": null,
-        "current_return_pct": 1.9541984732824202,
-        "virtual_pnl_usdt": 5.8626,
-        "seed_return_pct": 0.0586,
+        "current_return_pct": 1.4961832061068492,
+        "virtual_pnl_usdt": 4.4885,
+        "seed_return_pct": 0.0449,
         "close_reason": null,
         "decision_summary": "FTA A1 (rr_safe=2.75, rr_point=2.29) / 국면 #3 Alt-Season / BAKKTA 8.0 ALIGNED_LONG / size x0.6",
         "risk_plan": "entry 기준 -1.5% stop, +3% TP (FTA_A1_DEF; watch_target2=+6% 참고용)",
